@@ -69,8 +69,8 @@ function priceBuy({ senderParam, senderToken, signerToken }) {
 function getMaxParam(params) {
   if ('signerParam' in params) {
     switch (params.signerToken) {
-      case constants.rinkebyTokens.WETH:
-        return BigNumber(tokenAmounts[constants.rinkebyTokens.WETH])
+      case constants.rinkebyTokens.UVST:
+        return BigNumber(tokenAmounts[constants.rinkebyTokens.UVST])
       case constants.rinkebyTokens.DAI:
         return BigNumber(tokenAmounts[constants.rinkebyTokens.DAI])
     }
@@ -78,8 +78,8 @@ function getMaxParam(params) {
     switch (params.signerToken) {
       case constants.rinkebyTokens.DAI:
         return BigNumber(priceBuy({ signerParam: tokenAmounts[constants.rinkebyTokens.DAI], ...params }))
-      case constants.rinkebyTokens.WETH:
-        return BigNumber(priceSell({ signerParam: tokenAmounts[constants.rinkebyTokens.WETH], ...params }))
+      case constants.rinkebyTokens.UVST:
+        return BigNumber(priceSell({ signerParam: tokenAmounts[constants.rinkebyTokens.UVST], ...params }))
     }
   } else {
     throw new Error('Neither signerParam or senderParam provided to getMaxParam')
